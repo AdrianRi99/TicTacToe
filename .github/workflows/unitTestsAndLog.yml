@@ -1,9 +1,12 @@
-name: Android Unit Tests
+name: Android Build and Unit Test
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  unit-tests:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,19 +17,20 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11.0.15'
-        cache: 'gradle'
 
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
+    - name: Grant execute permission to Gradle wrapper
+      run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build --console=plain > build.log
+      run: ./gradlew assembleDebug > build-output.txt
 
-    - name: Run unit tests
-      run: ./gradlew test --console=plain >> build.log
+    - name: Run Unit Tests
+      run: ./gradlew testDebugUnitTest > unit-test-output.txt
 
-    - name: Save build log
+    - name: Save build and unit test outputs
       uses: actions/upload-artifact@v2
       with:
-        name: build-log
-        path: build.log
+        name: Build and Unit Test Outputs
+        path: |
+          build-output.txt
+          unit-test-output.txt
