@@ -14,4 +14,4 @@ jobs:
 
     - name: Run my script
       run: |
-        echo "Hello, world!"
+        echo 'Hello World' > output.txt
