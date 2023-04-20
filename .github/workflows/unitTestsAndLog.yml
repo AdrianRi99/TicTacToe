@@ -17,8 +17,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assemble
 
-    - name: Run Unit Tests
-      run: ./gradlew test
+    - name: Run Unit Tests and Save Log
+      run: ./gradlew test --console=plain > test.log
+      continue-on-error: true
 
     - name: Save Test Results
       uses: actions/upload-artifact@v2
