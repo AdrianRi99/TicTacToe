@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo 'Hello World' > output.txt
+        run: echo 'Hello World from Bob' > output.txt
       - name: Upload Output
         uses: actions/upload-artifact@v2
         with:
