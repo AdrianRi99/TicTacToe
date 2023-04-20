@@ -6,6 +6,8 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_finish_screen.*
 
 class FinishScreenActivity : AppCompatActivity() {
+
+    val test = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish_screen)
