@@ -18,11 +18,11 @@ jobs:
       run: ./gradlew assemble
 
     - name: Run Unit Tests and Save Log
-      run: ./gradlew test --console=plain > test.log
+      run: ./gradlew testDebugUnitTest --console=plain > test.log
       continue-on-error: true
 
     - name: Save Test Results
       uses: actions/upload-artifact@v2
       with:
         name: test-results
-        path: app/build/reports/tests
+        path: app/build/reports/tests/testDebugUnitTest
