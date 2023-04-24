@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Input
-        uses: jakejarvis/wait-for-input-action@master
+        uses: ./.scripts/index.html
         id: input
         with:
           prompt: Enter the text to be logged
