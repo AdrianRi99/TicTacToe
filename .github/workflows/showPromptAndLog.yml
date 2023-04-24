@@ -3,6 +3,7 @@ name: Dispatch Event on Repository Open
 on:
   repository_dispatch:
     types: [open-repository]
+  workflow_dispatch:
 
 jobs:
   trigger:
