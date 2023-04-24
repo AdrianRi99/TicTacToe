@@ -1,28 +1,52 @@
-const GITHUB_PERSONAL_ACCESS_TOKEN = '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';
-const REPO_OWNER = 'AdrianRi99';
-const REPO_NAME = 'TicTacToe';
+const form = document.querySelector('form');
+const input = document.querySelector('input');
 
-const payload = {
-  event_type: 'my-custom-event',
-  client_payload: {
-    message: 'Hello World!'
-  }
-};
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  const payload = JSON.stringify({ "event_type": "open-repository" });
 
-fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`, {
-  method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(payload)
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  console.log('Repository Dispatch Event wurde erfolgreich ausgelöst.');
-})
-.catch(e => {
-  console.log('Fehler beim Auslösen des Repository Dispatch Events:', e);
+  fetch(`https://api.github.com/repos/${AdrianRi99}/${TicTacToe}/dispatches`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${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}`
+    },
+    body: payload
+  })
+  .then(() => {
+    const text = input.value;
+    const author = github.context.payload.sender.login;
+    const date = new Date().toISOString();
+    const commitMessage = `Added "${text}" by ${author} on ${date}`;
+
+    const fileContent = `Text: ${text}\nAuthor: ${author}\nDate: ${date}`;
+
+    const octokit = new Octokit({ auth: personalAccessToken });
+
+    octokit.repos.createOrUpdateFileContents({
+      owner: AdrianRi99,
+      repo: TicTacToe,
+      path: 'log.txt',
+      message: commitMessage,
+      content: Buffer.from(fileContent).toString('base64'),
+      committer: {
+        name: github.context.payload.sender.login,
+        email: github.context.payload.sender.email || `${github.context.payload.sender.login}@users.noreply.github.com`
+      },
+      author: {
+        name: github.context.payload.sender.login,
+        email: github.context.payload.sender.email || `${github.context.payload.sender.login}@users.noreply.github.com`
+      }
+    })
+    .then(() => {
+      console.log('Log file updated.');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 });
