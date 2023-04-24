@@ -1,0 +1,29 @@
+name: Log Input
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  log-input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Show input prompt
+        run: node ./scripts/show-input-prompt.js
+      
+      - name: Log input
+        run: node ./scripts/log-input.js ${{ env.INPUT_TEXT }}
+        env:
+          INPUT_TEXT: ${{ steps.prompt.outputs.input }}
+          
+      - name: Commit log file
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add logs/mylog.txt
+          git commit -m "Add log file from GitHub Actions"
+          git push
