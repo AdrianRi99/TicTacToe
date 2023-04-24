@@ -1,19 +1,18 @@
-name: Custom Action
+name: Console Log
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  customAction:
+  console-log:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
       
-      - name: Run Custom Action
+      - name: Run Console Log
         uses: ./my-custom-action
         with:
-          message: "Hello World"
+          message: 'Hello World!'
 
