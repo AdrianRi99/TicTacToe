@@ -1,4 +1,4 @@
-name: Open Repository Dialog
+name: Open Dialog on Repository Open
 
 on:
   repository_dispatch:
@@ -11,8 +11,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - name: Install dependencies
+        run: npm install
       - name: Open dialog
-        run: node .scripts/main.js
         env:
           LOG_FILE_PATH: .messages/logs.txt
+        run: node .scripts/main.js ${{ env.LOG_FILE_PATH }}
+
 
