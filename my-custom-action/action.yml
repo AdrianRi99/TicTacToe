@@ -11,4 +11,4 @@ outputs:
     description: 'The greeting message'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'my-custom-action/index.js'
