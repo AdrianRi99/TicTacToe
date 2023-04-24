@@ -1,14 +1,18 @@
-name: My Workflow
+name: My Custom Action Workflow
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: My Custom Action
-      uses: ./my-custom-action
-      with:
-        message: "Hello world"
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Custom Action
+        uses: ./my-custom-action
+        with:
+          name: John
+
