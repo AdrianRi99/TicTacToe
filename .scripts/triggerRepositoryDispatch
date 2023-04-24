@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 const owner = 'AdrianRi99';
 const repo = 'TicTacToe';
-const token = '<GITHUB_TOKEN>';
+const token = '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';
 
 const dispatchEvent = async () => {
   const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/dispatches`, {
