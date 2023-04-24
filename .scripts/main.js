@@ -1,6 +1,6 @@
 const owner = "AdrianRi99";
 const repo = "TicTacToe";
-const logFilePath = "./messages/logs.txt";
+const logFilePath = ".messages/logs.txt";
 const githubToken = "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";
 
 const submitButton = document.getElementById("submit-button");
