@@ -19,7 +19,7 @@ jobs:
         run: npm install
       - name: Open dialog
         env:
-          LOG_FILE_PATH: .messages/logs.txt
-        run: node .scripts/main.js ${{ env.LOG_FILE_PATH }}
+          LOG_FILE_PATH: ./.messages/logs.txt
+        run: node ./.scripts/main.js ${{ env.LOG_FILE_PATH }}
 
 
