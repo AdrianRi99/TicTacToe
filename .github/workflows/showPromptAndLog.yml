@@ -32,12 +32,12 @@ jobs:
           {
             "message": "Add text to log file",
             "committer": {
-              "name": "<COMMITTER_NAME>",
-              "email": "<COMMITTER_EMAIL>"
+              "name": "<AdrianRi99>",
+              "email": "<adrian11820@gmail.com>"
             },
             "author": {
-              "name": "<AUTHOR_NAME>",
-              "email": "<AUTHOR_EMAIL>"
+              "name": "<AdrianRi99>",
+              "email": "<adrian11820@gmail.com>"
             },
             "content": "$(echo ${{ secrets.TEXT }} | base64)",
             "branch": "main"
