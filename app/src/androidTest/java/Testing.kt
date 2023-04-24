@@ -4,6 +4,8 @@ fun main() {
 
     points[0]++
 
+    val test  = 0
+
 
 
     for (i in points){
