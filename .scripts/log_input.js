@@ -19,7 +19,7 @@ function logInput() {
   const octokit = new Octokit();
   octokit.rest.repos.createOrUpdateFileContents({
     owner: 'AdrianRi99',
-    repo: 'TicTacToe.git',
+    repo: 'TicTacToe',
     path: filePath,
     message: commitMessage,
     content: btoa(logText),
