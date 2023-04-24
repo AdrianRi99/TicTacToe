@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Prompt for Input
-      uses: ./    # Referenzierung der lokalen Aktion im aktuellen Repository
+      uses: ./custom    # Referenzierung der lokalen Aktion im aktuellen Repository
       id: input
       with:
         prompt: "Please enter your input:"
