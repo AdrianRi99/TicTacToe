@@ -1,13 +1,14 @@
-name: Custom Action Workflow
-on:
-  schedule:
-    - cron: "0 0 * * *"
+name: My Custom Action
+description: Eine benutzerdefinierte Aktion in JavaScript
+runs:
+  using: "node12"
+  main: "index.js"
+inputs:
+  name:
+    description: "Ein Name als Eingabe"
+    required: true
+    default: "Welt"
+outputs:
+  greeting:
+    description: "Eine freundliche Begrüßung als Ausgabe"
 
-jobs:
-  run-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Run custom action
-        uses: ./my-custom-action
