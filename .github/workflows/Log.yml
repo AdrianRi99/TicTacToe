@@ -10,4 +10,4 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Run script
-      run: node .scripts/log.js
+      run: node ./.scripts/log.js
