@@ -1,6 +1,8 @@
 const core = require('@actions/core');
 const readline = require('readline');
 
+let str = "Hello, world!"; // Eine String-Variable mit dem Wert "Hello, world!"
+
 async function run() {
   try {
     const prompt = core.getInput('prompt');
