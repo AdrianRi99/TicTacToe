@@ -14,5 +14,5 @@ jobs:
       - name: Open dialog
         run: node .scripts/main.js
         env:
-          LOG_FILE_PATH: ${{ env.LOG_FILE_PATH }}
+          LOG_FILE_PATH: .messages/logs.txt
 
