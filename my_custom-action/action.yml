@@ -1,0 +1,13 @@
+name: Custom Action Workflow
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run custom action
+        uses: ./my-custom-action
