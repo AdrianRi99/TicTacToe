@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Log Input</title>
+    <script src="./log-input.js"></script>
+  </head>
+  <body onload="showInputPrompt()">
+    <h1>Log Input</h1>
+    <div id="input-prompt">
+      <label for="input-text">Bitte geben Sie Ihren Text ein:</label>
+      <textarea id="input-text"></textarea>
+      <button onclick="logInput()">Abschicken</button>
+    </div>
+    <div id="success-message" style="display:none">
+      Vielen Dank für Ihre Eingabe!
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@octokit/rest@3.3.0/dist/octokit-rest.min.js"></script>
+  </body>
+</html>
