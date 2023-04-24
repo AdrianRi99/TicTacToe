@@ -1,13 +1,19 @@
-name: Custom Action Workflow
+name: Custom Action
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  run-action:
+  customAction:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Run custom action
+      
+      - name: Run Custom Action
         uses: ./my-custom-action
+        with:
+          message: "Hello World"
+
