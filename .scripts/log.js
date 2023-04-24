@@ -1,1 +1,1 @@
-console.log("Hello World");
+process.stdout.write(console.log('Hello World'));
