@@ -1,6 +1,9 @@
+name: Open Repository Dialog
+
 on:
   repository_dispatch:
     types: [open-repository]
+  workflow_dispatch:
 
 jobs:
   open-dialog:
