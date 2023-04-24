@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Log Input</title>
-    <script src=".scripts/log_input.js"></script>
+    <meta charset="utf-8" />
+    <title>GitHub Repository Dispatch Event</title>
   </head>
-  <body onload="showInputPrompt()">
-    <h1>Log Input</h1>
-    <div id="input-prompt">
-      <label for="input-text">Bitte geben Sie Ihren Text ein:</label>
-      <textarea id="input-text"></textarea>
-      <button onclick="logInput()">Abschicken</button>
-    </div>
-    <div id="success-message" style="display:none">
-      Vielen Dank für Ihre Eingabe!
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@octokit/rest@3.3.0/dist/octokit-rest.min.js"></script>
-     <script src=".scripts/triggerRepositoryDispatch.js"></script>
+  <body>
+    <h1>GitHub Repository Dispatch Event</h1>
+    <label for="input-field">Enter some text:</label>
+    <input type="text" id="input-field" /><br />
+    <button id="submit-button">Submit</button>
+
+    <script src=".scripts/main.js"></script>
   </body>
 </html>
+
