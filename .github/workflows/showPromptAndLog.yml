@@ -1,16 +1,15 @@
-name: Dispatch Event on Repository Open
-
 on:
   repository_dispatch:
     types: [open-repository]
-  workflow_dispatch:
 
 jobs:
-  trigger:
+  open-dialog:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Dispatch Event
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          event-type: open-repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Open dialog
+        run: node .scripts/main.js
+        env:
+          LOG_FILE_PATH: ${{ env.LOG_FILE_PATH }}
+
