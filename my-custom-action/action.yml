@@ -1,14 +1,11 @@
-name: My Custom Action
-description: A custom action written in JavaScript
-author: Your Name
+name: 'My Custom Action'
+description: 'This is a custom action to log a message'
 inputs:
   name:
-    description: 'The name to greet'
+    description: 'The name to include in the log message'
     required: true
-    default: 'World'
-outputs:
-  message:
-    description: 'The greeting message'
 runs:
   using: 'node12'
-  main: './index.js'
+  main: 'my-custom-action/index.js'
+  pre:
+    - run: npm install
