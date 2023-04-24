@@ -11,15 +11,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Show prompt
-      uses: wei/prompt@v1.0.1
-      with:
-        message: "Enter your text:"
-        variable: text
+      run: node .scripts/prompt.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COMMITTER_NAME: "AdrianRi99"
+        COMMITTER_EMAIL: "adrian11820@gmail.com"
+        AUTHOR_NAME: "AdrianRi99"
+        AUTHOR_EMAIL: "adrian11820@gmail.com"
     - name: Write to log file
       uses: octokit/request-action@v2.x
       with:
         method: PUT
-        url: https://api.github.com/repos/AdrianRi99/TicTacToe.git/contents/log.txt
+        url: https://api.github.com/repos/AdrianRi99/TicTacToe/contents/log.txt
         headers: |
           {
             "Authorization": "token ${{ secrets.GITHUB_TOKEN }}",
@@ -29,12 +32,12 @@ jobs:
           {
             "message": "Add text to log file",
             "committer": {
-              "name": "AdrianRi99",
-              "email": "adrian11820@gmail.com"
+              "name": "<COMMITTER_NAME>",
+              "email": "<COMMITTER_EMAIL>"
             },
             "author": {
-              "name": "AdrianRi99",
-              "email": "adrian11820@gmail.com"
+              "name": "<AUTHOR_NAME>",
+              "email": "<AUTHOR_EMAIL>"
             },
             "content": "$(echo ${{ secrets.TEXT }} | base64)",
             "branch": "main"
